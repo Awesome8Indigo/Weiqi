@@ -1,16 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { JSX } from "react";
+import { useState, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function JoinPage() {
-    const [gameId, setGameId] = useState('');
+export default function JoinPage(): JSX.Element {
+    const [gameId, setGameId] = useState<string>('');
     const router = useRouter();
 
-    const handleJoin = () => {
+    const handleJoin = (): void => {
         if (gameId.trim()) {
             router.push(`/${gameId}`);
         }
+    };
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+        setGameId(e.target.value);
     };
 
     return (
@@ -20,7 +25,7 @@ export default function JoinPage() {
                 type="text"
                 placeholder="Enter Game ID"
                 value={gameId}
-                onChange={(e) => setGameId(e.target.value)}
+                onChange={handleChange}
                 className="border px-4 py-2 rounded"
             />
             <button
