@@ -5,13 +5,15 @@ class Game {
     private byoYomi: number;
     private komi: number;
     private size: number;
+    private scoringSystem: string;
     
-    public constructor(players, timeLimit=7, byoYomi=30, komi=6.5, size=9) {
+    public constructor(players, timeLimit=7, byoYomi=30, komi=6.5, size=9, scoringSystem="japanese") {
         this.players = players;
         this.timeLimit = timeLimit*60; //returns time limit in seconds
         this.byoYomi = byoYomi;
         this.komi = komi;
         this.size = size;
+        this.scoringSystem = scoringSystem;
     }
     playerAdd(player) {
         if (this.players.length >= 2) {
