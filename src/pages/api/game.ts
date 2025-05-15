@@ -1,5 +1,5 @@
 
-class Game {
+export default class Game {
     private players: string[];
     private timeLimit: number;
     private byoYomi: number;

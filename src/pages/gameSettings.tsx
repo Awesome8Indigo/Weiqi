@@ -22,21 +22,37 @@ export default function GameSettings(): JSX.Element {
                     >
                         Let's Play
                     </button>
-                    <div className={"flex flex-col justify-center items-center py-8 text-black"}> {/* Added flex flex-col */}
-                        <ToggleSwitch
-                            options={["japanese", "chinese"]}
-                            defaultOption={"japanese"}
-                            buttonPadding_X={10}
-                            buttonPadding_Y={10}
-                            containerWidth={200}
-                            containerHeight={50}
-                            fontsize={20}
-                            orientation="horizontal"
-                            className="flex items-center justify-center w-full"
-                            group="scoring-group"
-                        />
-                    </div>
-                    <p>scoring system</p>
+                
+                <div className={"flex flex-col justify-center items-center pt-8 text-black"}> {/* Added flex flex-col */}
+                    <ToggleSwitch
+                        options={["9x9", "13x13", "19x19"]}
+                        defaultOption={"9x9"}
+                        buttonPadding_X={10}
+                        buttonPadding_Y={10}
+                        containerWidth={220}
+                        containerHeight={50}
+                        fontsize={20}
+                        group="size-group"
+                        orientation="horizontal"
+                        className="flex items-center justify-center w-full"
+
+                    />
+                </div>
+                <div className={"flex flex-col justify-center items-center py-8 text-black"}> {/* Added flex flex-col */}
+                    <ToggleSwitch
+                        options={["japanese", "chinese"]}
+                        defaultOption={"japanese"}
+                        buttonPadding_X={10}
+                        buttonPadding_Y={10}
+                        containerWidth={200}
+                        containerHeight={50}
+                        fontsize={20}
+                        orientation="horizontal"
+                        className="flex items-center justify-center w-full"
+                        group="scoring-group"
+                    />
+                </div>
+                    
 
                 </div>
                 <span className="ml-2 flex justify-center">time limit</span>
@@ -63,21 +79,7 @@ export default function GameSettings(): JSX.Element {
                     />
                 </div>
 
-                <div className={"flex flex-col justify-center items-center pt-8 text-black"}> {/* Added flex flex-col */}
-                    <ToggleSwitch
-                        options={["9x9", "13x13", "19x19"]}
-                        defaultOption={"9x9"}
-                        buttonPadding_X={10}
-                        buttonPadding_Y={10}
-                        containerWidth={220}
-                        containerHeight={50}
-                        fontsize={20}
-                        group="size-group"
-                        orientation="horizontal"
-                        className="flex items-center justify-center w-full"
-
-                    />
-                </div>
+                
             </div>
         </>
     );
