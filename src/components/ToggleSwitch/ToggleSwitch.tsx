@@ -10,6 +10,8 @@ export interface ToggleSwitchProps {
   className?: string;
   group: string;
   containerColor?: string;
+  value?: string;
+  onChange?: (value: string) => void;
 }
 
 export default function ToggleSwitch({
@@ -24,6 +26,8 @@ export default function ToggleSwitch({
   orientation,
   className,
   containerColor,
+  value,
+  onChange,
 }: ToggleSwitchProps) {
   return (
     <div
@@ -49,14 +53,20 @@ export default function ToggleSwitch({
               id={id}
               value={opt}
               className="peer hidden"
+              checked={value ? value === opt : undefined}
               defaultChecked={opt === defaultOption}
+              onChange={() => onChange && onChange(opt)}
             />
             <label
               htmlFor={id}
-              className="block cursor-pointer rounded peer-checked:bg-blue-500 peer-checked:text-white px-4 py-2"
+              className="block cursor-pointer rounded peer-checked:bg-blue-500 px-4 py-2"
               style={{
-                padding: `${buttonPadding_Y ?? 0}px ${buttonPadding_X ?? 0}px`,
-                fontSize: fontsize ? `${fontsize}px` : undefined,
+              padding: `${buttonPadding_Y ?? 0}px ${buttonPadding_X ?? 0}px`,
+              fontSize: fontsize ? `${fontsize}px` : undefined,
+              color: undefined, // default color
+              ...(value === opt || (!value && opt === defaultOption)
+                ? { color: '#EADFEB' }
+                : {}),
               }}
             >
               {opt}

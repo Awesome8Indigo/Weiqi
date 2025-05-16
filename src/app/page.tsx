@@ -2,7 +2,7 @@
 import {router} from "next/client";
 import { useRouter } from 'next/navigation';
 import {useState} from "react";
-import gameSettings from "../pages/gameSettings";
+import GameSettings from "../pages/gameSettings";
 import {JSX} from "react";
 
 const GameMenu = () => {
@@ -14,7 +14,7 @@ const GameMenu = () => {
     };
     if (game) {
         return (
-          gameSettings()
+          <GameSettings/>
         );
     }
     return (
